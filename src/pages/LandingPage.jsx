@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Brain,
   Database,
@@ -12,6 +13,7 @@ import {
 const ModernLandingPage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,8 +65,16 @@ const ModernLandingPage = () => {
             <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
               KnowYourAI
             </div>
-            <button className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full hover:opacity-90 transition-opacity">
-              Explore Database
+            <button
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7298341188724506625",
+                  "_blank"
+                )
+              }
+              className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full hover:opacity-90 transition-opacity"
+            >
+              Subscribe to Newsletter
             </button>
           </div>
         </div>
@@ -89,7 +99,10 @@ const ModernLandingPage = () => {
           <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto animate-fade-in-delay">
             Discover the world's most comprehensive AI companies database
           </p>
-          <button className="group relative px-8 py-4 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-500 rounded-full hover:opacity-90 transition-all duration-300 animate-fade-in-delay-2">
+          <button
+            onClick={() => navigate("/CompanyList")}
+            className="group relative px-8 py-4 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-500 rounded-full hover:opacity-90 transition-all duration-300 animate-fade-in-delay-2"
+          >
             Explore Now
             <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
           </button>
